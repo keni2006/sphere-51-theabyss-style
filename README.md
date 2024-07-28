@@ -1,1081 +1,1081 @@
-General:
-
-Byte protocols changed.
-Item Pick UP hooked, and unnecessary spam removed for nearby characters.
-Animation Dragging removed.
-Encryption keys set.
-Anti-Lag system implemented.
-Incognito color is standardized.
-[frozen] note removed for paralyzed characters in a guarded zone.
-One space added before skill result line of Anatomy and Animal Lore.
-Anti-Lag System Changes:
-
-Anti-Lag system adjusted:
-NPCs with specific brain types have a fixed timer.
-Other NPCs have a random timer with a minimum of 5 seconds.
-Players have a consistent 2-second timer.
-Encryption:
-
-Encryption and init encryption updated.
-Item Integrity:
-
-Added a percentage display for item integrity.
-Karma/Fame Display:
-
-Karma or fame received is now displayed in units.
-Ghost Interactions:
-
-Fixed field casts on ghosts.
-Caster does not receive karma for ghost hits.
-Wall of stone now passes through ghosts.
-Aggression Penalty:
-
-Aggressors leaving battle lose fame.
-Spell Visibility:
-
-Spells now only affect objects within the caster's visibility.
-Reveal spell has a radius of 18 tiles.
-Bandages:
-
-Dirty bandages unified to one type.
-Telnet Access:
-
-Telnet access restricted to specified IPs in ips.txt file.
-Paralysis Field:
-
-Paralysis field target is checked for visibility.
-Crash Prevention:
-
-Anti-Crash measure implemented for corrupted packet 0xB1.
-GM Gump:
-
-Fixed a sphere crash when viewing container items in the GM's gump.
-Casting Rotation:
-
-Character rotation during casting removed (tested for a week).
-Summoning:
-
-Summoning on fences disabled.
-FORCHARS Script:
-
-FORCHARS script loop completed.
-Corner Movement:
-
-Prevented movement through diagonally open corners.
-PVP Zones:
-
-p2p attack disabled in PvP zones.
-PVP flag removed in multiregion zones.
-Recollection animation added.
-Optimization:
-
-Optimization improvements:
-Characters in logout are not processed at every step.
-STATF_INDOORS flag check skipped during each step.
-Recollection Animation:
-
-Recollection animation improved:
-Black color for characters in the old location if they are evil.
-Animation stays in the place of recollection.
-Pin-Code System:
-
-Introduced a pin-code system for item usage.
-New Magic:
-
-New magic implemented: Astral Projection.
-Uses a book-like item 0x2253.
-Cast only on a marked rune.
-Uses 100 mana, and cannot be cast while mounted.
-Character enters a new Wisp body, invisible and dead.
-Wimp is invisible starting with 80 necromancer skill.
-Astral movement restricted to GM necromancers.
-Return to native body via warp module or attack on native body.
-5 mana spent every second while in astral if necromancy is not GM.
-Return during world save or client disconnect.
-No speaking while in astral.
-Native character in astral has the [Astral] note.
-Information about the magic is added to the game lore.
-Stamina Check:
-
-Prevented entering a tile with another character if stamina is lower than dexterity.
-World Save Timer:
-
-World save timer reset to 0 if it's over 100 days.
-Kill timer no longer resets to 1/10th during log in.
-"Murderer!" message appears with the first kill.
-FORITEMS Script:
-
-FORITEMS script works like FORCHARS but includes offline characters.
-Criminal System:
-
-Implemented new criminal system:
-MEMORY objects are not removed during save.
-MEMORY LAYER_FLAG_MURDERS has a character link to save during world save.
-Kill timer check for MORE=0 during login (as MORE is not saved).
-MEMORY LAYER_FLAG_CRIMINAL has a character link and saves during logout.
-LAYER_FLAG_CRIMINAL no longer removed on death.
-All timers in ghost mode now work.
-MEMORY_FIGHT flags removed from the game.
-Gray karma range extended to -10000.
-Loot, carving, and snooping on characters grant criminal status.
-Fight item granted regardless of victim's war mode.
-Attacking blue karma grants criminal status.
-Fame distributed equally among attackers in range of the victim.
-Victim can return fire without becoming gray for the attacker.
-Last kill now removed.
-Kill item removed on last kill removal.
-No kills or fame granted in regions with flags 0a8e and a481.
-"Criminal!" message does not appear if character is already [criminal].
-Death triggered immediately in OnTakeDamage if HP<=0 and the character is a player.
-Green status characters are only those in the same guild.
-No kills given for killing green or orange status characters.
-Tamed animals are now blue karma, and attacking them grants criminal status.
-MEMORY fights are not forcefully removed on death, timer set to 0.
-Red guild members are now green.
-No check for NPC being in a fight to grant fight item.
-Normal fame distribution from NPCs (1/300th).
-Fame distributed only to attackers within 16 tiles of the victim.
-No karma granted for killing players with <0 karma.
-Karma given to all killers, not distributed equally.
-Karma granted if the killer was within 16 tiles of the victim.
-PKs cannot increase karma above -3000.
-Vampires with Plot & 0100 also have -3000 karma limit.
-No fame or karma granted for killing tamed NPCs.
-Tamed animals are no longer blue status.
-Check for & 2000 instead of the a481 region.
-Criminal timer is updated to 15 seconds if the character with [criminal] status is attacked within 15 seconds of clearing.
-All fights are removed upon clearing criminal status.
-All fights are removed upon clearing karma to blue.
-All fights are removed upon clearing kill timer from 3 to 2.
-Target of a fight is cleared upon death, but after the corpse is created.
-No criminal status granted in special regions.
-Crash Prevention:
-
-SEH implemented to prevent crash during layer enumeration.
-Criminal Timer:
-
-Minimum criminal timer update on attack is 30 seconds.
-No karma granted for NPC killers.
-Karma Removal:
-
-Karma is not removed for killing criminals with >0 karma, unless it's an NPC.
-War Mode:
-
-War mode is removed on death.
-Polymorph:
-
-Hair from polymorph does not disappear after restart.
-DLL update without sphere restart implemented.
-Mining/Fishing Timer:
-
-Mining timer in a specific rectangle is set to RAND(120s).
-Fishing timer set to 20 minutes.
-Pet Aggression:
-
-Attacking oneself with pets does not result in criminal status.
-Mining timer in another specific rectangle is set to 600s.
-Criminal status highlighted with yellow.
-Criminal status granted only for looting blue corpses.
-Script System:
-
-Creation of a new script system started.
-Character Creation:
-
-Implemented a check for existing names during character creation.
-Account Updates:
-
-Account file updated during login.
-DLL reload integrated into Resync restart.
-DLL Update:
-
-DLL does not reload if the update folder is empty.
-ta.dll is removed from the update folder after loading the DLL.
-Server Time:
-
-Serv.rtime displays time HH:MM:SS.
-Serv.rtimetext displays date YYYY/MM/DD.
-Trade Window:
-
-Prevented taking and using items from the trade window.
-Trade windows destroyed when buying from a vendor.
-No weight check during trade cancellation.
-Overweight message upon item reception.
-Links preserved on items when stacking.
-Gump IDs:
-
-Gump IDs sent to clients are now always randomly generated.
-Error unexpected gump button is no longer logged.
-Gump Manipulation:
-
-New gump is not sent if no response from the old one.
-Gumps from 200 to 209 have distortion applied to the gumppic string.
-Power Hour:
-
-Power Hour system (c) OSI implemented.
-Moonglow Travel:
-
-Prevented landing on ships in Moonglow region.
-Trade Window Weight:
-
-Allowed placing any weight in trade window containers.
-Damage Display:
-
-Damage amount displayed above character's head, color based on damage strength.
-New Mounts:
-
-New mounts added:
-Energy vortex (recommended for GMs).
-Beetle (recommended as a rare auction item).
-Abyssycle (one-wheeled bicycle, recommended to be crafted with shrinkable item paint).
-Trade Window and World Save:
-
-All trade windows closed on world save.
-Satellite Snapshot:
-
-Satellite snapshot system implemented.
-Satellite Snapshot Improvements:
-
-Snapshot scale changed to 1:6.
-Characters are marked with a circle.
-Snapshot path changed.
-Hidden and invisible characters are not included in the snapshot.
-Snapshot time is logged.
-Highlights for specific areas are added to the snapshot.
-Snapshot generation frequency set to 30-60 minutes.
-Container Weight:
-
-Allowed taking any weight from any container, but items are dropped upon placing back in.
-Shrinking Mounts:
-
-Shrinking mounts are not un-shrunk on purchase.
-Vendor Item Purchase:
-
-Amount check implemented before item removal from vendor.
-Limit of 20 items per purchase.
-Amount hack detection implemented.
-Bank Hack Prevention:
-
-Bank hack prevention system implemented.
-Bank Weight Display:
-
-Bank weight displayed upon opening the bank.
-Item Drop:
-
-Check for item count on the ground implemented, with limits and warnings.
-Newitem Script:
-
-.act set to -1 for the character who creates a new item via script.
-Bouncing Items:
-
-Items are placed in the pack during bouncing.
-Timer set to -1.
-Attribute 02 removed.
-Skill Values:
-
-All skill values are now realistic.
-Equipment Weight:
-
-Allowed equipping any item regardless of overweight status.
-Attribute 2 removed and timer set to -1 upon equipping.
-Resource Fatigue:
-
-Resource fatigue system implemented.
-Ghost Speaking:
-
-Ghost speaking working correctly.
-Vendor Item Limit:
-
-Player vendors cannot hold more than 100 items.
-Vendor Command Restriction:
-
-Player vendors ignore commands from non .em characters.
-Moonglow Water Travel:
-
-Prevented traveling by boat to the Moonglow region.
-Prevented landing in region_type_multi.
-Invulnerability Flag:
-
-Characters with invulnerability flag are not attacked.
-Boat Travel:
-
-Boat travel restrictions and error handling implemented.
-Boat Locking:
-
-Boat sides are not unlocked during rotation.
-Nickname Highlights:
-
-Nickname highlight colors changed.
-Field Spells:
-
-Check for placement of field spells on tiles.
-Identical fields replaced with new ones, except walls.
-Wall amount is increased when cast on existing walls, and the item timer is updated.
-Power Hour:
-
-Power Hour system implemented.
-Exceptions on Death:
-
-Fixed exception errors on character death.
-Character Titles:
-
-Title added to nickname if # is present in NAME.
-Young Player Note:
-
-[young] note added if GT <= 5000 and character is level 1.
-Wall of Stone:
-
-Visibility check added for Wall of Stone cast.
-Ghost Speaking:
-
-Ghost speaking restricted to level 1 players.
-Level 1 players always hear ghosts.
-Spirit Speak flag set on death, removed on resurrection.
-Casting Speed:
-
-Casting speed adjusted based on armor value.
-Double loot in Newbie Dungeon for money dropped by monsters.
-NPC Display:
-
-[NPC] tag removed.
-[invulnerable] [hidden] [hallu] added for GMs.
-[frozen] [tamed] [criminal] added for all characters.
-Polymorph Armor:
-
-Armor from polymorph is now taken into account.
-Scroll Casting:
-
-Scroll casting speed adjusted based on armor value.
-Scroll MoreY:
-
-MoreY set to 0 for Flame Strike, Lightning, and Paralyze scrolls.
-Scroll Casting Restrictions:
-
-Flame Strike, Lightning, and Paralyze scroll spells cannot be cast if armor is lower than 20.
-Wall of Stone, Paralyze field, and Energy field cannot be cast if the target is a character.
-Music System:
-
-Music system implemented:
-Checks for TRIGPERIODIC in SPHEREmap.scp.
-Music can be assigned to specific regions.
-Music list is loaded from the [REGION ...] trigger.
-Random music plays on entry to a new region.
-Music does not play for ghosts.
-No new music plays if entering a region with the same trigperiodic as the exit region.
-Data is updated during resync.
-Music System - Live Background:
-
-Music system implemented:
-Music played in regions has a duration, with new music playing after it ends.
-Music is played only once if the "ONTRIGGER=PERIODIC" string is not present in the [REGION ...] trigger.
-Karma/Fame Distribution:
-
-High-level system for karma/fame distribution on death implemented.
-Field Spell Targets:
-
-Field spells can now be cast on items (like corpses).
-Classes:
-
-Classes introduced, allowing races to become specific types based on professions.
-Monk: Can restore mana by sacrificing health.
-Hunter: Can create invisible spider silk traps.
-Druid: Can enter summoned creatures and control them.
-Vendor Bug Fixes:
-
-Vendor bugs fixed.
-Teleportation function now works in regions with ANTIMAGIC_RECALLIN.
-Monk Clones:
-
-Invisible stone created under monk clones.
-NPC Death:
-
-NPCs with STATF_DEAD flag now die properly.
-Classes and Notes:
+GENERAL:
+
+BYTE PROTOCOLS CHANGED.
+ITEM PICK UP HOOKED, AND UNNECESSARY SPAM REMOVED FOR NEARBY CHARACTERS.
+ANIMATION DRAGGING REMOVED.
+ENCRYPTION KEYS SET.
+ANTI-LAG SYSTEM IMPLEMENTED.
+INCOGNITO COLOR IS STANDARDIZED.
+[FROZEN] NOTE REMOVED FOR PARALYZED CHARACTERS IN A GUARDED ZONE.
+ONE SPACE ADDED BEFORE SKILL RESULT LINE OF ANATOMY AND ANIMAL LORE.
+ANTI-LAG SYSTEM CHANGES:
+
+ANTI-LAG SYSTEM ADJUSTED:
+NPCS WITH SPECIFIC BRAIN TYPES HAVE A FIXED TIMER.
+OTHER NPCS HAVE A RANDOM TIMER WITH A MINIMUM OF 5 SECONDS.
+PLAYERS HAVE A CONSISTENT 2-SECOND TIMER.
+ENCRYPTION:
+
+ENCRYPTION AND INIT ENCRYPTION UPDATED.
+ITEM INTEGRITY:
+
+ADDED A PERCENTAGE DISPLAY FOR ITEM INTEGRITY.
+KARMA/FAME DISPLAY:
+
+KARMA OR FAME RECEIVED IS NOW DISPLAYED IN UNITS.
+GHOST INTERACTIONS:
+
+FIXED FIELD CASTS ON GHOSTS.
+CASTER DOES NOT RECEIVE KARMA FOR GHOST HITS.
+WALL OF STONE NOW PASSES THROUGH GHOSTS.
+AGGRESSION PENALTY:
+
+AGGRESSORS LEAVING BATTLE LOSE FAME.
+SPELL VISIBILITY:
+
+SPELLS NOW ONLY AFFECT OBJECTS WITHIN THE CASTER'S VISIBILITY.
+REVEAL SPELL HAS A RADIUS OF 18 TILES.
+BANDAGES:
+
+DIRTY BANDAGES UNIFIED TO ONE TYPE.
+TELNET ACCESS:
+
+TELNET ACCESS RESTRICTED TO SPECIFIED IPS IN IPS.TXT FILE.
+PARALYSIS FIELD:
+
+PARALYSIS FIELD TARGET IS CHECKED FOR VISIBILITY.
+CRASH PREVENTION:
+
+ANTI-CRASH MEASURE IMPLEMENTED FOR CORRUPTED PACKET 0XB1.
+GM GUMP:
+
+FIXED A SPHERE CRASH WHEN VIEWING CONTAINER ITEMS IN THE GM'S GUMP.
+CASTING ROTATION:
+
+CHARACTER ROTATION DURING CASTING REMOVED (TESTED FOR A WEEK).
+SUMMONING:
+
+SUMMONING ON FENCES DISABLED.
+FORCHARS SCRIPT:
+
+FORCHARS SCRIPT LOOP COMPLETED.
+CORNER MOVEMENT:
+
+PREVENTED MOVEMENT THROUGH DIAGONALLY OPEN CORNERS.
+PVP ZONES:
+
+P2P ATTACK DISABLED IN PVP ZONES.
+PVP FLAG REMOVED IN MULTIREGION ZONES.
+RECOLLECTION ANIMATION ADDED.
+OPTIMIZATION:
+
+OPTIMIZATION IMPROVEMENTS:
+CHARACTERS IN LOGOUT ARE NOT PROCESSED AT EVERY STEP.
+STATF_INDOORS FLAG CHECK SKIPPED DURING EACH STEP.
+RECOLLECTION ANIMATION:
+
+RECOLLECTION ANIMATION IMPROVED:
+BLACK COLOR FOR CHARACTERS IN THE OLD LOCATION IF THEY ARE EVIL.
+ANIMATION STAYS IN THE PLACE OF RECOLLECTION.
+PIN-CODE SYSTEM:
+
+INTRODUCED A PIN-CODE SYSTEM FOR ITEM USAGE.
+NEW MAGIC:
+
+NEW MAGIC IMPLEMENTED: ASTRAL PROJECTION.
+USES A BOOK-LIKE ITEM 0X2253.
+CAST ONLY ON A MARKED RUNE.
+USES 100 MANA, AND CANNOT BE CAST WHILE MOUNTED.
+CHARACTER ENTERS A NEW WISP BODY, INVISIBLE AND DEAD.
+WIMP IS INVISIBLE STARTING WITH 80 NECROMANCER SKILL.
+ASTRAL MOVEMENT RESTRICTED TO GM NECROMANCERS.
+RETURN TO NATIVE BODY VIA WARP MODULE OR ATTACK ON NATIVE BODY.
+5 MANA SPENT EVERY SECOND WHILE IN ASTRAL IF NECROMANCY IS NOT GM.
+RETURN DURING WORLD SAVE OR CLIENT DISCONNECT.
+NO SPEAKING WHILE IN ASTRAL.
+NATIVE CHARACTER IN ASTRAL HAS THE [ASTRAL] NOTE.
+INFORMATION ABOUT THE MAGIC IS ADDED TO THE GAME LORE.
+STAMINA CHECK:
+
+PREVENTED ENTERING A TILE WITH ANOTHER CHARACTER IF STAMINA IS LOWER THAN DEXTERITY.
+WORLD SAVE TIMER:
+
+WORLD SAVE TIMER RESET TO 0 IF IT'S OVER 100 DAYS.
+KILL TIMER NO LONGER RESETS TO 1/10TH DURING LOG IN.
+"MURDERER!" MESSAGE APPEARS WITH THE FIRST KILL.
+FORITEMS SCRIPT:
+
+FORITEMS SCRIPT WORKS LIKE FORCHARS BUT INCLUDES OFFLINE CHARACTERS.
+CRIMINAL SYSTEM:
+
+IMPLEMENTED NEW CRIMINAL SYSTEM:
+MEMORY OBJECTS ARE NOT REMOVED DURING SAVE.
+MEMORY LAYER_FLAG_MURDERS HAS A CHARACTER LINK TO SAVE DURING WORLD SAVE.
+KILL TIMER CHECK FOR MORE=0 DURING LOGIN (AS MORE IS NOT SAVED).
+MEMORY LAYER_FLAG_CRIMINAL HAS A CHARACTER LINK AND SAVES DURING LOGOUT.
+LAYER_FLAG_CRIMINAL NO LONGER REMOVED ON DEATH.
+ALL TIMERS IN GHOST MODE NOW WORK.
+MEMORY_FIGHT FLAGS REMOVED FROM THE GAME.
+GRAY KARMA RANGE EXTENDED TO -10000.
+LOOT, CARVING, AND SNOOPING ON CHARACTERS GRANT CRIMINAL STATUS.
+FIGHT ITEM GRANTED REGARDLESS OF VICTIM'S WAR MODE.
+ATTACKING BLUE KARMA GRANTS CRIMINAL STATUS.
+FAME DISTRIBUTED EQUALLY AMONG ATTACKERS IN RANGE OF THE VICTIM.
+VICTIM CAN RETURN FIRE WITHOUT BECOMING GRAY FOR THE ATTACKER.
+LAST KILL NOW REMOVED.
+KILL ITEM REMOVED ON LAST KILL REMOVAL.
+NO KILLS OR FAME GRANTED IN REGIONS WITH FLAGS 0A8E AND A481.
+"CRIMINAL!" MESSAGE DOES NOT APPEAR IF CHARACTER IS ALREADY [CRIMINAL].
+DEATH TRIGGERED IMMEDIATELY IN ONTAKEDAMAGE IF HP<=0 AND THE CHARACTER IS A PLAYER.
+GREEN STATUS CHARACTERS ARE ONLY THOSE IN THE SAME GUILD.
+NO KILLS GIVEN FOR KILLING GREEN OR ORANGE STATUS CHARACTERS.
+TAMED ANIMALS ARE NOW BLUE KARMA, AND ATTACKING THEM GRANTS CRIMINAL STATUS.
+MEMORY FIGHTS ARE NOT FORCEFULLY REMOVED ON DEATH, TIMER SET TO 0.
+RED GUILD MEMBERS ARE NOW GREEN.
+NO CHECK FOR NPC BEING IN A FIGHT TO GRANT FIGHT ITEM.
+NORMAL FAME DISTRIBUTION FROM NPCS (1/300TH).
+FAME DISTRIBUTED ONLY TO ATTACKERS WITHIN 16 TILES OF THE VICTIM.
+NO KARMA GRANTED FOR KILLING PLAYERS WITH <0 KARMA.
+KARMA GIVEN TO ALL KILLERS, NOT DISTRIBUTED EQUALLY.
+KARMA GRANTED IF THE KILLER WAS WITHIN 16 TILES OF THE VICTIM.
+PKS CANNOT INCREASE KARMA ABOVE -3000.
+VAMPIRES WITH PLOT & 0100 ALSO HAVE -3000 KARMA LIMIT.
+NO FAME OR KARMA GRANTED FOR KILLING TAMED NPCS.
+TAMED ANIMALS ARE NO LONGER BLUE STATUS.
+CHECK FOR & 2000 INSTEAD OF THE A481 REGION.
+CRIMINAL TIMER IS UPDATED TO 15 SECONDS IF THE CHARACTER WITH [CRIMINAL] STATUS IS ATTACKED WITHIN 15 SECONDS OF CLEARING.
+ALL FIGHTS ARE REMOVED UPON CLEARING CRIMINAL STATUS.
+ALL FIGHTS ARE REMOVED UPON CLEARING KARMA TO BLUE.
+ALL FIGHTS ARE REMOVED UPON CLEARING KILL TIMER FROM 3 TO 2.
+TARGET OF A FIGHT IS CLEARED UPON DEATH, BUT AFTER THE CORPSE IS CREATED.
+NO CRIMINAL STATUS GRANTED IN SPECIAL REGIONS.
+CRASH PREVENTION:
+
+SEH IMPLEMENTED TO PREVENT CRASH DURING LAYER ENUMERATION.
+CRIMINAL TIMER:
+
+MINIMUM CRIMINAL TIMER UPDATE ON ATTACK IS 30 SECONDS.
+NO KARMA GRANTED FOR NPC KILLERS.
+KARMA REMOVAL:
+
+KARMA IS NOT REMOVED FOR KILLING CRIMINALS WITH >0 KARMA, UNLESS IT'S AN NPC.
+WAR MODE:
+
+WAR MODE IS REMOVED ON DEATH.
+POLYMORPH:
+
+HAIR FROM POLYMORPH DOES NOT DISAPPEAR AFTER RESTART.
+DLL UPDATE WITHOUT SPHERE RESTART IMPLEMENTED.
+MINING/FISHING TIMER:
+
+MINING TIMER IN A SPECIFIC RECTANGLE IS SET TO RAND(120S).
+FISHING TIMER SET TO 20 MINUTES.
+PET AGGRESSION:
+
+ATTACKING ONESELF WITH PETS DOES NOT RESULT IN CRIMINAL STATUS.
+MINING TIMER IN ANOTHER SPECIFIC RECTANGLE IS SET TO 600S.
+CRIMINAL STATUS HIGHLIGHTED WITH YELLOW.
+CRIMINAL STATUS GRANTED ONLY FOR LOOTING BLUE CORPSES.
+SCRIPT SYSTEM:
+
+CREATION OF A NEW SCRIPT SYSTEM STARTED.
+CHARACTER CREATION:
+
+IMPLEMENTED A CHECK FOR EXISTING NAMES DURING CHARACTER CREATION.
+ACCOUNT UPDATES:
+
+ACCOUNT FILE UPDATED DURING LOGIN.
+DLL RELOAD INTEGRATED INTO RESYNC RESTART.
+DLL UPDATE:
+
+DLL DOES NOT RELOAD IF THE UPDATE FOLDER IS EMPTY.
+TA.DLL IS REMOVED FROM THE UPDATE FOLDER AFTER LOADING THE DLL.
+SERVER TIME:
+
+SERV.RTIME DISPLAYS TIME HH:MM:SS.
+SERV.RTIMETEXT DISPLAYS DATE YYYY/MM/DD.
+TRADE WINDOW:
+
+PREVENTED TAKING AND USING ITEMS FROM THE TRADE WINDOW.
+TRADE WINDOWS DESTROYED WHEN BUYING FROM A VENDOR.
+NO WEIGHT CHECK DURING TRADE CANCELLATION.
+OVERWEIGHT MESSAGE UPON ITEM RECEPTION.
+LINKS PRESERVED ON ITEMS WHEN STACKING.
+GUMP IDS:
+
+GUMP IDS SENT TO CLIENTS ARE NOW ALWAYS RANDOMLY GENERATED.
+ERROR UNEXPECTED GUMP BUTTON IS NO LONGER LOGGED.
+GUMP MANIPULATION:
+
+NEW GUMP IS NOT SENT IF NO RESPONSE FROM THE OLD ONE.
+GUMPS FROM 200 TO 209 HAVE DISTORTION APPLIED TO THE GUMPPIC STRING.
+POWER HOUR:
+
+POWER HOUR SYSTEM (C) OSI IMPLEMENTED.
+MOONGLOW TRAVEL:
+
+PREVENTED LANDING ON SHIPS IN MOONGLOW REGION.
+TRADE WINDOW WEIGHT:
+
+ALLOWED PLACING ANY WEIGHT IN TRADE WINDOW CONTAINERS.
+DAMAGE DISPLAY:
+
+DAMAGE AMOUNT DISPLAYED ABOVE CHARACTER'S HEAD, COLOR BASED ON DAMAGE STRENGTH.
+NEW MOUNTS:
+
+NEW MOUNTS ADDED:
+ENERGY VORTEX (RECOMMENDED FOR GMS).
+BEETLE (RECOMMENDED AS A RARE AUCTION ITEM).
+ABYSSYCLE (ONE-WHEELED BICYCLE, RECOMMENDED TO BE CRAFTED WITH SHRINKABLE ITEM PAINT).
+TRADE WINDOW AND WORLD SAVE:
+
+ALL TRADE WINDOWS CLOSED ON WORLD SAVE.
+SATELLITE SNAPSHOT:
+
+SATELLITE SNAPSHOT SYSTEM IMPLEMENTED.
+SATELLITE SNAPSHOT IMPROVEMENTS:
+
+SNAPSHOT SCALE CHANGED TO 1:6.
+CHARACTERS ARE MARKED WITH A CIRCLE.
+SNAPSHOT PATH CHANGED.
+HIDDEN AND INVISIBLE CHARACTERS ARE NOT INCLUDED IN THE SNAPSHOT.
+SNAPSHOT TIME IS LOGGED.
+HIGHLIGHTS FOR SPECIFIC AREAS ARE ADDED TO THE SNAPSHOT.
+SNAPSHOT GENERATION FREQUENCY SET TO 30-60 MINUTES.
+CONTAINER WEIGHT:
+
+ALLOWED TAKING ANY WEIGHT FROM ANY CONTAINER, BUT ITEMS ARE DROPPED UPON PLACING BACK IN.
+SHRINKING MOUNTS:
+
+SHRINKING MOUNTS ARE NOT UN-SHRUNK ON PURCHASE.
+VENDOR ITEM PURCHASE:
+
+AMOUNT CHECK IMPLEMENTED BEFORE ITEM REMOVAL FROM VENDOR.
+LIMIT OF 20 ITEMS PER PURCHASE.
+AMOUNT HACK DETECTION IMPLEMENTED.
+BANK HACK PREVENTION:
+
+BANK HACK PREVENTION SYSTEM IMPLEMENTED.
+BANK WEIGHT DISPLAY:
+
+BANK WEIGHT DISPLAYED UPON OPENING THE BANK.
+ITEM DROP:
+
+CHECK FOR ITEM COUNT ON THE GROUND IMPLEMENTED, WITH LIMITS AND WARNINGS.
+NEWITEM SCRIPT:
+
+.ACT SET TO -1 FOR THE CHARACTER WHO CREATES A NEW ITEM VIA SCRIPT.
+BOUNCING ITEMS:
+
+ITEMS ARE PLACED IN THE PACK DURING BOUNCING.
+TIMER SET TO -1.
+ATTRIBUTE 02 REMOVED.
+SKILL VALUES:
+
+ALL SKILL VALUES ARE NOW REALISTIC.
+EQUIPMENT WEIGHT:
+
+ALLOWED EQUIPPING ANY ITEM REGARDLESS OF OVERWEIGHT STATUS.
+ATTRIBUTE 2 REMOVED AND TIMER SET TO -1 UPON EQUIPPING.
+RESOURCE FATIGUE:
+
+RESOURCE FATIGUE SYSTEM IMPLEMENTED.
+GHOST SPEAKING:
+
+GHOST SPEAKING WORKING CORRECTLY.
+VENDOR ITEM LIMIT:
+
+PLAYER VENDORS CANNOT HOLD MORE THAN 100 ITEMS.
+VENDOR COMMAND RESTRICTION:
+
+PLAYER VENDORS IGNORE COMMANDS FROM NON .EM CHARACTERS.
+MOONGLOW WATER TRAVEL:
+
+PREVENTED TRAVELING BY BOAT TO THE MOONGLOW REGION.
+PREVENTED LANDING IN REGION_TYPE_MULTI.
+INVULNERABILITY FLAG:
+
+CHARACTERS WITH INVULNERABILITY FLAG ARE NOT ATTACKED.
+BOAT TRAVEL:
+
+BOAT TRAVEL RESTRICTIONS AND ERROR HANDLING IMPLEMENTED.
+BOAT LOCKING:
+
+BOAT SIDES ARE NOT UNLOCKED DURING ROTATION.
+NICKNAME HIGHLIGHTS:
+
+NICKNAME HIGHLIGHT COLORS CHANGED.
+FIELD SPELLS:
+
+CHECK FOR PLACEMENT OF FIELD SPELLS ON TILES.
+IDENTICAL FIELDS REPLACED WITH NEW ONES, EXCEPT WALLS.
+WALL AMOUNT IS INCREASED WHEN CAST ON EXISTING WALLS, AND THE ITEM TIMER IS UPDATED.
+POWER HOUR:
+
+POWER HOUR SYSTEM IMPLEMENTED.
+EXCEPTIONS ON DEATH:
+
+FIXED EXCEPTION ERRORS ON CHARACTER DEATH.
+CHARACTER TITLES:
+
+TITLE ADDED TO NICKNAME IF # IS PRESENT IN NAME.
+YOUNG PLAYER NOTE:
+
+[YOUNG] NOTE ADDED IF GT <= 5000 AND CHARACTER IS LEVEL 1.
+WALL OF STONE:
+
+VISIBILITY CHECK ADDED FOR WALL OF STONE CAST.
+GHOST SPEAKING:
+
+GHOST SPEAKING RESTRICTED TO LEVEL 1 PLAYERS.
+LEVEL 1 PLAYERS ALWAYS HEAR GHOSTS.
+SPIRIT SPEAK FLAG SET ON DEATH, REMOVED ON RESURRECTION.
+CASTING SPEED:
+
+CASTING SPEED ADJUSTED BASED ON ARMOR VALUE.
+DOUBLE LOOT IN NEWBIE DUNGEON FOR MONEY DROPPED BY MONSTERS.
+NPC DISPLAY:
+
+[NPC] TAG REMOVED.
+[INVULNERABLE] [HIDDEN] [HALLU] ADDED FOR GMS.
+[FROZEN] [TAMED] [CRIMINAL] ADDED FOR ALL CHARACTERS.
+POLYMORPH ARMOR:
+
+ARMOR FROM POLYMORPH IS NOW TAKEN INTO ACCOUNT.
+SCROLL CASTING:
+
+SCROLL CASTING SPEED ADJUSTED BASED ON ARMOR VALUE.
+SCROLL MOREY:
+
+MOREY SET TO 0 FOR FLAME STRIKE, LIGHTNING, AND PARALYZE SCROLLS.
+SCROLL CASTING RESTRICTIONS:
+
+FLAME STRIKE, LIGHTNING, AND PARALYZE SCROLL SPELLS CANNOT BE CAST IF ARMOR IS LOWER THAN 20.
+WALL OF STONE, PARALYZE FIELD, AND ENERGY FIELD CANNOT BE CAST IF THE TARGET IS A CHARACTER.
+MUSIC SYSTEM:
+
+MUSIC SYSTEM IMPLEMENTED:
+CHECKS FOR TRIGPERIODIC IN SPHEREMAP.SCP.
+MUSIC CAN BE ASSIGNED TO SPECIFIC REGIONS.
+MUSIC LIST IS LOADED FROM THE [REGION ...] TRIGGER.
+RANDOM MUSIC PLAYS ON ENTRY TO A NEW REGION.
+MUSIC DOES NOT PLAY FOR GHOSTS.
+NO NEW MUSIC PLAYS IF ENTERING A REGION WITH THE SAME TRIGPERIODIC AS THE EXIT REGION.
+DATA IS UPDATED DURING RESYNC.
+MUSIC SYSTEM - LIVE BACKGROUND:
+
+MUSIC SYSTEM IMPLEMENTED:
+MUSIC PLAYED IN REGIONS HAS A DURATION, WITH NEW MUSIC PLAYING AFTER IT ENDS.
+MUSIC IS PLAYED ONLY ONCE IF THE "ONTRIGGER=PERIODIC" STRING IS NOT PRESENT IN THE [REGION ...] TRIGGER.
+KARMA/FAME DISTRIBUTION:
+
+HIGH-LEVEL SYSTEM FOR KARMA/FAME DISTRIBUTION ON DEATH IMPLEMENTED.
+FIELD SPELL TARGETS:
+
+FIELD SPELLS CAN NOW BE CAST ON ITEMS (LIKE CORPSES).
+CLASSES:
+
+CLASSES INTRODUCED, ALLOWING RACES TO BECOME SPECIFIC TYPES BASED ON PROFESSIONS.
+MONK: CAN RESTORE MANA BY SACRIFICING HEALTH.
+HUNTER: CAN CREATE INVISIBLE SPIDER SILK TRAPS.
+DRUID: CAN ENTER SUMMONED CREATURES AND CONTROL THEM.
+VENDOR BUG FIXES:
+
+VENDOR BUGS FIXED.
+TELEPORTATION FUNCTION NOW WORKS IN REGIONS WITH ANTIMAGIC_RECALLIN.
+MONK CLONES:
+
+INVISIBLE STONE CREATED UNDER MONK CLONES.
+NPC DEATH:
+
+NPCS WITH STATF_DEAD FLAG NOW DIE PROPERLY.
+CLASSES AND NOTES:
 
-All classes completed and notes added.
-Resurrection:
+ALL CLASSES COMPLETED AND NOTES ADDED.
+RESURRECTION:
 
-Resurrection from script no longer checks AM region.
-Young Player Guards:
-
-Guards for young players work like noble guards.
-Lighting and Town Stones:
-
-Lighting and town stone systems implemented.
-Recollection:
-
-Recollection bug fixed.
-Curse Spell:
-
-Curse spell cannot be cast on items.
-Vendor Item Attribute:
-
-Attribute 1000 removed from items purchased from vendors.
-PK Restrictions:
-
-PKs cannot recollect in guarded zones or use gate travel to enter them.
-Young Player Message:
+RESURRECTION FROM SCRIPT NO LONGER CHECKS AM REGION.
+YOUNG PLAYER GUARDS:
+
+GUARDS FOR YOUNG PLAYERS WORK LIKE NOBLE GUARDS.
+LIGHTING AND TOWN STONES:
+
+LIGHTING AND TOWN STONE SYSTEMS IMPLEMENTED.
+RECOLLECTION:
+
+RECOLLECTION BUG FIXED.
+CURSE SPELL:
+
+CURSE SPELL CANNOT BE CAST ON ITEMS.
+VENDOR ITEM ATTRIBUTE:
+
+ATTRIBUTE 1000 REMOVED FROM ITEMS PURCHASED FROM VENDORS.
+PK RESTRICTIONS:
+
+PKS CANNOT RECOLLECT IN GUARDED ZONES OR USE GATE TRAVEL TO ENTER THEM.
+YOUNG PLAYER MESSAGE:
 
-Young player message adjusted for hours remaining.
-PVP Spells:
+YOUNG PLAYER MESSAGE ADJUSTED FOR HOURS REMAINING.
+PVP SPELLS:
 
-Attacking spells cannot be cast on players in PVP zones.
-Pet Aggression:
+ATTACKING SPELLS CANNOT BE CAST ON PLAYERS IN PVP ZONES.
+PET AGGRESSION:
 
-NPCs with STATF_PET flag cannot attack in NO_PVP regions.
-Bless Spell:
+NPCS WITH STATF_PET FLAG CANNOT ATTACK IN NO_PVP REGIONS.
+BLESS SPELL:
 
-Bless spell on items with &010 attribute disabled.
-Resurrection:
+BLESS SPELL ON ITEMS WITH &010 ATTRIBUTE DISABLED.
+RESURRECTION:
 
-Resurrection now possible in regions with & 8000 flag.
-Guild Chat:
+RESURRECTION NOW POSSIBLE IN REGIONS WITH & 8000 FLAG.
+GUILD CHAT:
 
-.gu <message> command added for guild chat.
-Guild Member List:
+.GU <MESSAGE> COMMAND ADDED FOR GUILD CHAT.
+GUILD MEMBER LIST:
 
-.gonline command added to show online guild members.
-Loot Reduction:
+.GONLINE COMMAND ADDED TO SHOW ONLINE GUILD MEMBERS.
+LOOT REDUCTION:
 
-Loot reduced by 50% for GPs in WasteLands and "The Abyss: *" regions.
-Astral Character Resurrection:
+LOOT REDUCED BY 50% FOR GPS IN WASTELANDS AND "THE ABYSS: *" REGIONS.
+ASTRAL CHARACTER RESURRECTION:
 
-Astral characters cannot be resurrected.
-WasteLands Access:
+ASTRAL CHARACTERS CANNOT BE RESURRECTED.
+WASTELANDS ACCESS:
 
-Access to WasteLands via gate or recollection disabled.
-Boat Travel:
+ACCESS TO WASTELANDS VIA GATE OR RECOLLECTION DISABLED.
+BOAT TRAVEL:
 
-Boat travel to the Moon region re-enabled.
-Casting Speed:
+BOAT TRAVEL TO THE MOON REGION RE-ENABLED.
+CASTING SPEED:
 
-Casting speed system updated for non-combat spells.
-Item Durability:
+CASTING SPEED SYSTEM UPDATED FOR NON-COMBAT SPELLS.
+ITEM DURABILITY:
 
-Item durability changes implemented.
-Arms Lore now displays item durability.
-NPC Sleep System:
+ITEM DURABILITY CHANGES IMPLEMENTED.
+ARMS LORE NOW DISPLAYS ITEM DURABILITY.
+NPC SLEEP SYSTEM:
 
-Sleep system for NPCs implemented.
-Archery and Magery height difference check added.
-New AI engine BRAIN_NEWAI = 15 added.
-Young Player Game Time:
+SLEEP SYSTEM FOR NPCS IMPLEMENTED.
+ARCHERY AND MAGERY HEIGHT DIFFERENCE CHECK ADDED.
+NEW AI ENGINE BRAIN_NEWAI = 15 ADDED.
+YOUNG PLAYER GAME TIME:
 
-Young player status extended to 10k game time.
-Vendor Restock:
+YOUNG PLAYER STATUS EXTENDED TO 10K GAME TIME.
+VENDOR RESTOCK:
 
-Vendor restock timer set to 900 seconds.
-Vendor item amount 244 changed to 500 on restock.
-Incognito Removal:
+VENDOR RESTOCK TIMER SET TO 900 SECONDS.
+VENDOR ITEM AMOUNT 244 CHANGED TO 500 ON RESTOCK.
+INCOGNITO REMOVAL:
 
-Incognito automatically removed on logout and world save.
-Sector Timer:
+INCOGNITO AUTOMATICALLY REMOVED ON LOGOUT AND WORLD SAVE.
+SECTOR TIMER:
 
-Timer set to 0 for characters entering a sector, and light sending is skipped.
-Jail Guild Chat:
+TIMER SET TO 0 FOR CHARACTERS ENTERING A SECTOR, AND LIGHT SENDING IS SKIPPED.
+JAIL GUILD CHAT:
 
-.gu command works in jail for players above level 1.
-Nickname Display:
+.GU COMMAND WORKS IN JAIL FOR PLAYERS ABOVE LEVEL 1.
+NICKNAME DISPLAY:
 
-Nickname display function rewritten.
-Sector entry timer set to 0 if greater than 10 seconds.
-NPC Respawn:
+NICKNAME DISPLAY FUNCTION REWRITTEN.
+SECTOR ENTRY TIMER SET TO 0 IF GREATER THAN 10 SECONDS.
+NPC RESPAWN:
 
-NPC respawn system disabled.
-Horse Removal:
+NPC RESPAWN SYSTEM DISABLED.
+HORSE REMOVAL:
 
-Removed cause of horse removal.
-Vendor Price Glitch:
+REMOVED CAUSE OF HORSE REMOVAL.
+VENDOR PRICE GLITCH:
 
-Vendor price glitch fixed.
-Damage Display:
+VENDOR PRICE GLITCH FIXED.
+DAMAGE DISPLAY:
 
-Negative damage removed.
-Newbie Dungeon loot restored.
-Vendor Limits:
+NEGATIVE DAMAGE REMOVED.
+NEWBIE DUNGEON LOOT RESTORED.
+VENDOR LIMITS:
 
-Vendor item limit set to 50.
-Vendor NPC initial capital set to 1k.
-Vendor NPC capital increased by half the total cost of sold items.
-Crash Fixes:
+VENDOR ITEM LIMIT SET TO 50.
+VENDOR NPC INITIAL CAPITAL SET TO 1K.
+VENDOR NPC CAPITAL INCREASED BY HALF THE TOTAL COST OF SOLD ITEMS.
+CRASH FIXES:
 
-.name command crash and .gu command crash fixed.
-Report of glitched items on save added.
-Report of all cgray exceptions added.
-Logout Note:
+.NAME COMMAND CRASH AND .GU COMMAND CRASH FIXED.
+REPORT OF GLITCHED ITEMS ON SAVE ADDED.
+REPORT OF ALL CGRAY EXCEPTIONS ADDED.
+LOGOUT NOTE:
 
-[logout] note displayed correctly.
-OnMakeCorpse Exception:
+[LOGOUT] NOTE DISPLAYED CORRECTLY.
+ONMAKECORPSE EXCEPTION:
 
-Exception in OnMakeCorpse function fixed.
-DLL Exception:
+EXCEPTION IN ONMAKECORPSE FUNCTION FIXED.
+DLL EXCEPTION:
 
-DLL exceptions fixed related to getting pointers from sphere's global array.
-Paperdoll Display:
+DLL EXCEPTIONS FIXED RELATED TO GETTING POINTERS FROM SPHERE'S GLOBAL ARRAY.
+PAPERDOLL DISPLAY:
 
-Paperdoll display function rewritten.
-Guild stone item name is now displayed, not the abbreviation.
-Killer Titles:
+PAPERDOLL DISPLAY FUNCTION REWRITTEN.
+GUILD STONE ITEM NAME IS NOW DISPLAYED, NOT THE ABBREVIATION.
+KILLER TITLES:
 
-Killer titles added based on kill count.
-Killer List Exception:
+KILLER TITLES ADDED BASED ON KILL COUNT.
+KILLER LIST EXCEPTION:
 
-Exception during killer list iteration fixed.
-Jail Note:
+EXCEPTION DURING KILLER LIST ITERATION FIXED.
+JAIL NOTE:
 
-[jailed] note added.
-Invisibility and Logout Note:
+[JAILED] NOTE ADDED.
+INVISIBILITY AND LOGOUT NOTE:
 
-[logout] note displayed even if the character is invisible.
-GP Distribution:
+[LOGOUT] NOTE DISPLAYED EVEN IF THE CHARACTER IS INVISIBLE.
+GP DISTRIBUTION:
 
-System to grant 100 GPs to bank accounts from online.txt file implemented.
-Monk Clone Protection:
+SYSTEM TO GRANT 100 GPS TO BANK ACCOUNTS FROM ONLINE.TXT FILE IMPLEMENTED.
+MONK CLONE PROTECTION:
 
-Invisible stone created under monk clones.
-Stat Increase:
+INVISIBLE STONE CREATED UNDER MONK CLONES.
+STAT INCREASE:
 
-Stat increase disabled while character has 1 of 4 curse types.
-Wall of Stone:
+STAT INCREASE DISABLED WHILE CHARACTER HAS 1 OF 4 CURSE TYPES.
+WALL OF STONE:
 
-Wall of Stone destroys traps and unfreezes characters.
-New AI Engine:
+WALL OF STONE DESTROYS TRAPS AND UNFREEZES CHARACTERS.
+NEW AI ENGINE:
 
-New AI engine BRAIN_NEWAI = 16 implemented.
-Sound Effects:
+NEW AI ENGINE BRAIN_NEWAI = 16 IMPLEMENTED.
+SOUND EFFECTS:
 
-Sound effects added for NPC AI 15 and 16.
-Container Restrictions:
+SOUND EFFECTS ADDED FOR NPC AI 15 AND 16.
+CONTAINER RESTRICTIONS:
 
-Only bones with attr&&10 and link 4fffffff can be taken from containers.
-Item Pickup Logging:
+ONLY BONES WITH ATTR&&10 AND LINK 4FFFFFFF CAN BE TAKEN FROM CONTAINERS.
+ITEM PICKUP LOGGING:
 
-Item pickup time logging implemented.
-Corpse Click Logging:
+ITEM PICKUP TIME LOGGING IMPLEMENTED.
+CORPSE CLICK LOGGING:
 
-Corpse click time logging implemented.
-Russian Language:
+CORPSE CLICK TIME LOGGING IMPLEMENTED.
+RUSSIAN LANGUAGE:
 
-Russian language implemented in gumps.
-Logout note display fixed.
-Date and time added to debug and tainfo logs.
-Killer Titles:
+RUSSIAN LANGUAGE IMPLEMENTED IN GUMPS.
+LOGOUT NOTE DISPLAY FIXED.
+DATE AND TIME ADDED TO DEBUG AND TAINFO LOGS.
+KILLER TITLES:
 
-Killer titles removed.
-GP Distribution Fix:
+KILLER TITLES REMOVED.
+GP DISTRIBUTION FIX:
 
-GP distribution fix for accounts.
-Town Stone Tick:
+GP DISTRIBUTION FIX FOR ACCOUNTS.
+TOWN STONE TICK:
 
-Town stone tick implemented to fix town stone capture.
-Gump ID Fix:
+TOWN STONE TICK IMPLEMENTED TO FIX TOWN STONE CAPTURE.
+GUMP ID FIX:
 
-Gump ID request adjusted for Russian clients.
-Russian Unicode:
+GUMP ID REQUEST ADJUSTED FOR RUSSIAN CLIENTS.
+RUSSIAN UNICODE:
 
-Russian Unicode implemented for ".sysmessage" and ".message" commands.
-Language Change:
+RUSSIAN UNICODE IMPLEMENTED FOR ".SYSMESSAGE" AND ".MESSAGE" COMMANDS.
+LANGUAGE CHANGE:
 
-Language change command ".lang" added.
-Mayor Note:
+LANGUAGE CHANGE COMMAND ".LANG" ADDED.
+MAYOR NOTE:
 
-[Mayor] note added for city mayors.
-Bow Animation:
+[MAYOR] NOTE ADDED FOR CITY MAYORS.
+BOW ANIMATION:
 
-Bow animation on horses adjusted.
-Horse Timer:
+BOW ANIMATION ON HORSES ADJUSTED.
+HORSE TIMER:
 
-Horse timer fix.
-Horse Removal on Dismount:
+HORSE TIMER FIX.
+HORSE REMOVAL ON DISMOUNT:
 
-NPC horses are removed after shrinking or dismounting.
-Horse Food Storage:
+NPC HORSES ARE REMOVED AFTER SHRINKING OR DISMOUNTING.
+HORSE FOOD STORAGE:
 
-Horse food stored in MorePX upon mounting.
-Server-Wide Gump:
+HORSE FOOD STORED IN MOREPX UPON MOUNTING.
+SERVER-WIDE GUMP:
 
-serv.alltome command added to display a gump to all clients.
-Update Scroll:
+SERV.ALLTOME COMMAND ADDED TO DISPLAY A GUMP TO ALL CLIENTS.
+UPDATE SCROLL:
 
-Update scroll removed on login.
-@Login Event:
+UPDATE SCROLL REMOVED ON LOGIN.
+@LOGIN EVENT:
 
-@Login event implemented for handling newly logged in characters.
-Character Commands:
+@LOGIN EVENT IMPLEMENTED FOR HANDLING NEWLY LOGGED IN CHARACTERS.
+CHARACTER COMMANDS:
 
-"tomefile <path>" and "execcmd" commands added for characters.
-Mushroom fix.
-Character Variables:
+"TOMEFILE <PATH>" AND "EXECCMD" COMMANDS ADDED FOR CHARACTERS.
+MUSHROOM FIX.
+CHARACTER VARIABLES:
 
-Full-function character variables BOLOR2 and FLAGS2 implemented.
-Server-Wide Message:
+FULL-FUNCTION CHARACTER VARIABLES BOLOR2 AND FLAGS2 IMPLEMENTED.
+SERVER-WIDE MESSAGE:
 
-serv.allmessage command added, Russian display is correct only if the command is in the script file.
-Update News Message:
+SERV.ALLMESSAGE COMMAND ADDED, RUSSIAN DISPLAY IS CORRECT ONLY IF THE COMMAND IS IN THE SCRIPT FILE.
+UPDATE NEWS MESSAGE:
 
-Update news message triggered by the presence of newsu.txt file.
-Packet Limit:
+UPDATE NEWS MESSAGE TRIGGERED BY THE PRESENCE OF NEWSU.TXT FILE.
+PACKET LIMIT:
 
-Packet send limit set to 16384 bytes, with logging in debugcatch for exceeding the limit.
-Nickname Display Optimization:
+PACKET SEND LIMIT SET TO 16384 BYTES, WITH LOGGING IN DEBUGCATCH FOR EXCEEDING THE LIMIT.
+NICKNAME DISPLAY OPTIMIZATION:
 
-Nickname display function optimized.
-Astral Note:
+NICKNAME DISPLAY FUNCTION OPTIMIZED.
+ASTRAL NOTE:
 
-[astral] note added for Astral characters.
-Bad Message Exception Logging:
+[ASTRAL] NOTE ADDED FOR ASTRAL CHARACTERS.
+BAD MESSAGE EXCEPTION LOGGING:
 
-Bad message exception logging implemented.
-World Save Exception Logging:
+BAD MESSAGE EXCEPTION LOGGING IMPLEMENTED.
+WORLD SAVE EXCEPTION LOGGING:
 
-World save exception logging implemented.
-Flag Hold Time:
+WORLD SAVE EXCEPTION LOGGING IMPLEMENTED.
+FLAG HOLD TIME:
 
-Flag hold time adjusted to 2 minutes.
-Damage Display:
+FLAG HOLD TIME ADJUSTED TO 2 MINUTES.
+DAMAGE DISPLAY:
 
-Damage display implemented for all types.
-Universal Item Type 200:
+DAMAGE DISPLAY IMPLEMENTED FOR ALL TYPES.
+UNIVERSAL ITEM TYPE 200:
 
-Universal item type 200 implemented, with functionality based on More value:
-more=1: Character astral projects to MoreP location.
-more=2: 200k GPs consumed, comment updated with date +1 month, profpack.txt updated with account login and prof pack expiry date.
-Instant Logout Restriction:
+UNIVERSAL ITEM TYPE 200 IMPLEMENTED, WITH FUNCTIONALITY BASED ON MORE VALUE:
+MORE=1: CHARACTER ASTRAL PROJECTS TO MOREP LOCATION.
+MORE=2: 200K GPS CONSUMED, COMMENT UPDATED WITH DATE +1 MONTH, PROFPACK.TXT UPDATED WITH ACCOUNT LOGIN AND PROF PACK EXPIRY DATE.
+INSTANT LOGOUT RESTRICTION:
 
-Instant logout restriction removed for non-nobles outside instant_logout regions.
-Damage Display:
+INSTANT LOGOUT RESTRICTION REMOVED FOR NON-NOBLES OUTSIDE INSTANT_LOGOUT REGIONS.
+DAMAGE DISPLAY:
 
-Damage only displayed if greater than 5.
-Wall of Stone Cast Time:
+DAMAGE ONLY DISPLAYED IF GREATER THAN 5.
+WALL OF STONE CAST TIME:
 
-Wall of Stone cast time adjusted to 3 seconds from books and 2 seconds from scrolls.
-Casting Speed System:
+WALL OF STONE CAST TIME ADJUSTED TO 3 SECONDS FROM BOOKS AND 2 SECONDS FROM SCROLLS.
+CASTING SPEED SYSTEM:
 
-Casting speed system no longer affects combat spells.
-Trade Window Item Names:
+CASTING SPEED SYSTEM NO LONGER AFFECTS COMBAT SPELLS.
+TRADE WINDOW ITEM NAMES:
 
-Item names are displayed for all parties in the trade window.
-World Save Exception:
+ITEM NAMES ARE DISPLAYED FOR ALL PARTIES IN THE TRADE WINDOW.
+WORLD SAVE EXCEPTION:
 
-World save exception fix, next save time is increased to avoid spamming.
-Character Flags:
+WORLD SAVE EXCEPTION FIX, NEXT SAVE TIME IS INCREASED TO AVOID SPAMMING.
+CHARACTER FLAGS:
 
-4B flags added to flags2.
-Friendly Fire:
+4B FLAGS ADDED TO FLAGS2.
+FRIENDLY FIRE:
 
-4B commands no longer kill friendly characters.
-Character Activity Tracking:
+4B COMMANDS NO LONGER KILL FRIENDLY CHARACTERS.
+CHARACTER ACTIVITY TRACKING:
 
-LastActiveTime variable implemented to track character activity.
-Active Clients count added to satellite info.
-Game Time Saving:
+LASTACTIVETIME VARIABLE IMPLEMENTED TO TRACK CHARACTER ACTIVITY.
+ACTIVE CLIENTS COUNT ADDED TO SATELLITE INFO.
+GAME TIME SAVING:
 
-Game time saved to account on each save.
-Logout Time Addition:
+GAME TIME SAVED TO ACCOUNT ON EACH SAVE.
+LOGOUT TIME ADDITION:
 
-Minute no longer added to logout time if it was zero.
-Connection Queue:
+MINUTE NO LONGER ADDED TO LOGOUT TIME IF IT WAS ZERO.
+CONNECTION QUEUE:
 
-Connection queue increased to 40k.
-Log-IP Ban System:
+CONNECTION QUEUE INCREASED TO 40K.
+LOG-IP BAN SYSTEM:
 
-Log-IP ban system rewritten.
-Possible ping attack logging.
-Wall of Stone Cast Time Fix:
+LOG-IP BAN SYSTEM REWRITTEN.
+POSSIBLE PING ATTACK LOGGING.
+WALL OF STONE CAST TIME FIX:
 
-Wall of Stone cast time fix.
-PVP Points System:
+WALL OF STONE CAST TIME FIX.
+PVP POINTS SYSTEM:
 
-PVP points system implemented, with titles assigned based on points.
-Points are deducted from "looser" characters.
-Anatomy now shows character's PVP points.
-Anomalies:
+PVP POINTS SYSTEM IMPLEMENTED, WITH TITLES ASSIGNED BASED ON POINTS.
+POINTS ARE DEDUCTED FROM "LOOSER" CHARACTERS.
+ANATOMY NOW SHOWS CHARACTER'S PVP POINTS.
+ANOMALIES:
 
-Anomaly placeholder implemented during resync and .goxxxxx commands.
-PVP Titles:
+ANOMALY PLACEHOLDER IMPLEMENTED DURING RESYNC AND .GOXXXXX COMMANDS.
+PVP TITLES:
 
-PVP titles adjusted, Warlord and Colonel swapped.
-Weapon Durability:
+PVP TITLES ADJUSTED, WARLORD AND COLONEL SWAPPED.
+WEAPON DURABILITY:
 
-Weapon durability adjusted for 100% durability from 10% to 100% real breakage.
-Bone Carving:
+WEAPON DURABILITY ADJUSTED FOR 100% DURABILITY FROM 10% TO 100% REAL BREAKAGE.
+BONE CARVING:
 
-Bone carving implemented:
-Bone link set to the owner of the bones.
-More and More2 copied from the corpse.
-Bone name set to "Bones of victim carved by carver".
-Item Animation:
+BONE CARVING IMPLEMENTED:
+BONE LINK SET TO THE OWNER OF THE BONES.
+MORE AND MORE2 COPIED FROM THE CORPSE.
+BONE NAME SET TO "BONES OF VICTIM CARVED BY CARVER".
+ITEM ANIMATION:
 
-Item movement animation enabled.
-PVP Zone Expansion:
+ITEM MOVEMENT ANIMATION ENABLED.
+PVP ZONE EXPANSION:
 
-PVP points zone extended to red cities.
-Blue-on-Blue Kill Karma:
+PVP POINTS ZONE EXTENDED TO RED CITIES.
+BLUE-ON-BLUE KILL KARMA:
 
-Half the victim's karma is deducted from the killer.
-Server Time Fixes:
+HALF THE VICTIM'S KARMA IS DEDUCTED FROM THE KILLER.
+SERVER TIME FIXES:
 
-serv.rtime and rtimetext commands fixed.
-Item Damage:
+SERV.RTIME AND RTIMETEXT COMMANDS FIXED.
+ITEM DAMAGE:
 
-Item damage reduced by half if the source is an NPC.
-Wall of Stone Casting:
+ITEM DAMAGE REDUCED BY HALF IF THE SOURCE IS AN NPC.
+WALL OF STONE CASTING:
 
-Wall of Stone cast time adjusted based on armor.
-Character Variables:
+WALL OF STONE CAST TIME ADJUSTED BASED ON ARMOR.
+CHARACTER VARIABLES:
 
-Character variable src.gumps added.
-Wipe System:
+CHARACTER VARIABLE SRC.GUMPS ADDED.
+WIPE SYSTEM:
 
-Wipe parameter #2 added to delete corrupt keys.
-.gu Command:
+WIPE PARAMETER #2 ADDED TO DELETE CORRUPT KEYS.
+.GU COMMAND:
 
-Space check implemented for .gu command.
-Wall of Stone Casting:
+SPACE CHECK IMPLEMENTED FOR .GU COMMAND.
+WALL OF STONE CASTING:
 
-Wall of Stone cast time adjusted based on armor.
-Character Stat Logging:
+WALL OF STONE CAST TIME ADJUSTED BASED ON ARMOR.
+CHARACTER STAT LOGGING:
 
-TotalMana, Invisibility, DeadlyPoisons, DragonMeats, IronIngots, Logs, and EyesOfNewt stats are logged.
-Guild Member List Threading:
+TOTALMANA, INVISIBILITY, DEADLYPOISONS, DRAGONMEATS, IRONINGOTS, LOGS, AND EYESOFNEWT STATS ARE LOGGED.
+GUILD MEMBER LIST THREADING:
 
-.goname command runs in a separate thread.
-Recall Restrictions:
+.GONAME COMMAND RUNS IN A SEPARATE THREAD.
+RECALL RESTRICTIONS:
 
-Recall disabled in AM_RECALLIN regions.
-Skill Total Limit:
+RECALL DISABLED IN AM_RECALLIN REGIONS.
+SKILL TOTAL LIMIT:
 
-skilltotal command now caps skills at 100 if the total is greater than 100.
-Text File Transfer:
+SKILLTOTAL COMMAND NOW CAPS SKILLS AT 100 IF THE TOTAL IS GREATER THAN 100.
+TEXT FILE TRANSFER:
 
-All text files transferred to the TXT folder.
-Class Movement Speed:
+ALL TEXT FILES TRANSFERRED TO THE TXT FOLDER.
+CLASS MOVEMENT SPEED:
 
-Movement speed adjustments for Monk and Hunter classes.
-PVP Point Logging:
+MOVEMENT SPEED ADJUSTMENTS FOR MONK AND HUNTER CLASSES.
+PVP POINT LOGGING:
 
-PVP point logging implemented.
-Hunter Karma Penalty:
+PVP POINT LOGGING IMPLEMENTED.
+HUNTER KARMA PENALTY:
 
-100 karma deducted from hunters if someone is caught in their trap.
-Character Variables:
+100 KARMA DEDUCTED FROM HUNTERS IF SOMEONE IS CAUGHT IN THEIR TRAP.
+CHARACTER VARIABLES:
 
-pvp1...pvp5 variables added, storing the last victim's serial number.
-Vendor Purchase:
+PVP1...PVP5 VARIABLES ADDED, STORING THE LAST VICTIM'S SERIAL NUMBER.
+VENDOR PURCHASE:
 
-Vendor will not purchase items for 0 GPs.
-Recruit PVP Points:
+VENDOR WILL NOT PURCHASE ITEMS FOR 0 GPS.
+RECRUIT PVP POINTS:
 
-Recruits now start with 1 PVP point.
-Guard Attack:
+RECRUITS NOW START WITH 1 PVP POINT.
+GUARD ATTACK:
 
-No fame or karma granted if a guard kills a monster.
-Anatomy Display:
+NO FAME OR KARMA GRANTED IF A GUARD KILLS A MONSTER.
+ANATOMY DISPLAY:
 
-Anatomy now shows PVP points for players, but not for NPCs.
-Anatomy display fixed.
-Karma Distribution:
+ANATOMY NOW SHOWS PVP POINTS FOR PLAYERS, BUT NOT FOR NPCS.
+ANATOMY DISPLAY FIXED.
+KARMA DISTRIBUTION:
 
-Karma distribution fixed.
-PVP Point Logging:
+KARMA DISTRIBUTION FIXED.
+PVP POINT LOGGING:
 
-PVP point logging updated to show when points are given.
-Guild Member Kills:
+PVP POINT LOGGING UPDATED TO SHOW WHEN POINTS ARE GIVEN.
+GUILD MEMBER KILLS:
 
-Guild members who kill each other are not included in the last victim and PVP point calculations.
-Anatomy Message:
+GUILD MEMBERS WHO KILL EACH OTHER ARE NOT INCLUDED IN THE LAST VICTIM AND PVP POINT CALCULATIONS.
+ANATOMY MESSAGE:
 
-Anatomy message now displayed on a single line.
-PVP Point List:
+ANATOMY MESSAGE NOW DISPLAYED ON A SINGLE LINE.
+PVP POINT LIST:
 
-Victims already in the killer's list are not added to the PVP point list.
-Bad Message Exception:
+VICTIMS ALREADY IN THE KILLER'S LIST ARE NOT ADDED TO THE PVP POINT LIST.
+BAD MESSAGE EXCEPTION:
 
-Fixed frequent bad message exceptions with double clicks.
-Fame Distribution:
+FIXED FREQUENT BAD MESSAGE EXCEPTIONS WITH DOUBLE CLICKS.
+FAME DISTRIBUTION:
 
-Fame distribution set to 9/100.
-Guard Kill Check:
+FAME DISTRIBUTION SET TO 9/100.
+GUARD KILL CHECK:
 
-Guard kill check disabled.
-Bboard Logging:
+GUARD KILL CHECK DISABLED.
+BBOARD LOGGING:
 
-Bboard hacking logging implemented.
-Guard Fixes:
+BBOARD HACKING LOGGING IMPLEMENTED.
+GUARD FIXES:
 
-Guard fixes implemented.
-Flip Command:
+GUARD FIXES IMPLEMENTED.
+FLIP COMMAND:
 
-Flip command is not logged.
-Noble Logout:
+FLIP COMMAND IS NOT LOGGED.
+NOBLE LOGOUT:
 
-Noble logout speed increased outside guarded zones.
-Wipe System:
+NOBLE LOGOUT SPEED INCREASED OUTSIDE GUARDED ZONES.
+WIPE SYSTEM:
 
-Wipe system improved:
-%<ID> to delete an ID without parameters.
-$ prefix for hex parameters.
-Logout Event:
+WIPE SYSTEM IMPROVED:
+%<ID> TO DELETE AN ID WITHOUT PARAMETERS.
+$ PREFIX FOR HEX PARAMETERS.
+LOGOUT EVENT:
 
-ON=@Logout triggered on the second .xdiscoffect.
-Home Point Saving:
+ON=@LOGOUT TRIGGERED ON THE SECOND .XDISCOFFECT.
+HOME POINT SAVING:
 
-HOMEP=P saved for characters in online status during world save.
-Recall Speed:
+HOMEP=P SAVED FOR CHARACTERS IN ONLINE STATUS DURING WORLD SAVE.
+RECALL SPEED:
 
-Recall speed slowed down by 1.5x if magic is 90 or higher.
-@Prelogin Event:
+RECALL SPEED SLOWED DOWN BY 1.5X IF MAGIC IS 90 OR HIGHER.
+@PRELOGIN EVENT:
 
-@Prelogin event implemented before sending the world to the character.
-REGIONXYZ Function:
+@PRELOGIN EVENT IMPLEMENTED BEFORE SENDING THE WORLD TO THE CHARACTER.
+REGIONXYZ FUNCTION:
 
-REGIONXYZ function implemented to return the region based on the character's location.
-Nickname Display in Save Zones:
+REGIONXYZ FUNCTION IMPLEMENTED TO RETURN THE REGION BASED ON THE CHARACTER'S LOCATION.
+NICKNAME DISPLAY IN SAVE ZONES:
 
-Nickname not displayed in save zones for inactive characters (5+ minutes idle).
-Teleportation Speed:
+NICKNAME NOT DISPLAYED IN SAVE ZONES FOR INACTIVE CHARACTERS (5+ MINUTES IDLE).
+TELEPORTATION SPEED:
 
-Teleportation speed slowed down by 1.5x.
-TTL (Time to Live) Parameter:
+TELEPORTATION SPEED SLOWED DOWN BY 1.5X.
+TTL (TIME TO LIVE) PARAMETER:
 
-TTL parameter added for simple items.
-TTL=DD.MM.YYYY: Sets a specific date for destruction.
-TTL=0: Resets the destruction date.
-TTLSET=<hex>: Sets the item to live for <hex> months.
-TTLMINC=<hex>: Adds <hex> months to the current destruction date.
-TTL saved during world save.
-Item with TTL shows a message about its expiration date.
-Recall Speed:
+TTL PARAMETER ADDED FOR SIMPLE ITEMS.
+TTL=DD.MM.YYYY: SETS A SPECIFIC DATE FOR DESTRUCTION.
+TTL=0: RESETS THE DESTRUCTION DATE.
+TTLSET=<HEX>: SETS THE ITEM TO LIVE FOR <HEX> MONTHS.
+TTLMINC=<HEX>: ADDS <HEX> MONTHS TO THE CURRENT DESTRUCTION DATE.
+TTL SAVED DURING WORLD SAVE.
+ITEM WITH TTL SHOWS A MESSAGE ABOUT ITS EXPIRATION DATE.
+RECALL SPEED:
 
-Recall speed increased for characters with GT<50000 who are not criminals or PKs.
-PVP Point System:
+RECALL SPEED INCREASED FOR CHARACTERS WITH GT<50000 WHO ARE NOT CRIMINALS OR PKS.
+PVP POINT SYSTEM:
 
-New PVP point distribution system implemented.
-PVP Point Display:
+NEW PVP POINT DISTRIBUTION SYSTEM IMPLEMENTED.
+PVP POINT DISPLAY:
 
-.xshow pvppoints command disabled for NPCs.
-PVM Points:
+.XSHOW PVPPOINTS COMMAND DISABLED FOR NPCS.
+PVM POINTS:
 
-PVM points added.
-Guild War Karma:
+PVM POINTS ADDED.
+GUILD WAR KARMA:
 
-No karma changes when killing a guild war character.
-PVP/PVM Levels:
+NO KARMA CHANGES WHEN KILLING A GUILD WAR CHARACTER.
+PVP/PVM LEVELS:
 
-src.PVPLVL and PVMLVL variables added to track PVP/PVM levels.
-Blood Link:
+SRC.PVPLVL AND PVMLVL VARIABLES ADDED TO TRACK PVP/PVM LEVELS.
+BLOOD LINK:
 
-Blood now has a link to the character it came from.
-Region Initialization:
+BLOOD NOW HAS A LINK TO THE CHARACTER IT CAME FROM.
+REGION INITIALIZATION:
 
-initregion wrapped in SEH.
-PVM Levels and Titles:
+INITREGION WRAPPED IN SEH.
+PVM LEVELS AND TITLES:
 
-PVM levels implemented.
-PVM titles added to Anatomy.
-Paperdoll Titles:
+PVM LEVELS IMPLEMENTED.
+PVM TITLES ADDED TO ANATOMY.
+PAPERDOLL TITLES:
 
-Guild titles displayed in paperdoll for non-paladins and non-vampires.
-Webpage Error Handling:
+GUILD TITLES DISPLAYED IN PAPERDOLL FOR NON-PALADINS AND NON-VAMPIRES.
+WEBPAGE ERROR HANDLING:
 
-Webpage error handling debug implemented.
-Prof Pack Logging:
+WEBPAGE ERROR HANDLING DEBUG IMPLEMENTED.
+PROF PACK LOGGING:
 
-Prof pack logging fix.
-Damage2 Source:
+PROF PACK LOGGING FIX.
+DAMAGE2 SOURCE:
 
-damage2 source set to src.arg1, which is the source character's serial.
-Character Variables:
+DAMAGE2 SOURCE SET TO SRC.ARG1, WHICH IS THE SOURCE CHARACTER'S SERIAL.
+CHARACTER VARIABLES:
 
-src.pvm1..5 variables added.
-Damage and Spell Effects:
+SRC.PVM1..5 VARIABLES ADDED.
+DAMAGE AND SPELL EFFECTS:
 
-arg1 functionality added for src.damage and spelleffect.
-Invisible Characters:
+ARG1 FUNCTIONALITY ADDED FOR SRC.DAMAGE AND SPELLEFFECT.
+INVISIBLE CHARACTERS:
 
-Consuls and higher ranks no longer exit invisibility on save.
-RegionXYZ Function:
+CONSULS AND HIGHER RANKS NO LONGER EXIT INVISIBILITY ON SAVE.
+REGIONXYZ FUNCTION:
 
-regionxyz function now also returns the MULTI region type.
-Cursed Items:
+REGIONXYZ FUNCTION NOW ALSO RETURNS THE MULTI REGION TYPE.
+CURSED ITEMS:
 
-Cursed items can now be picked up.
-Cursed/Blessed Item Names:
+CURSED ITEMS CAN NOW BE PICKED UP.
+CURSED/BLESSED ITEM NAMES:
 
-Cursed and Blessed prefixes now use lowercase.
-Spell Effect Source:
+CURSED AND BLESSED PREFIXES NOW USE LOWERCASE.
+SPELL EFFECT SOURCE:
 
-spelleffect source set to the character itself.
-AFK Status:
+SPELLEFFECT SOURCE SET TO THE CHARACTER ITSELF.
+AFK STATUS:
 
-AFK status only applied to online characters in region 0a481.
-Character Name Addition:
+AFK STATUS ONLY APPLIED TO ONLINE CHARACTERS IN REGION 0A481.
+CHARACTER NAME ADDITION:
 
-addcharname function improved.
-Field Spell Dispel Effect:
+ADDCHARNAME FUNCTION IMPROVED.
+FIELD SPELL DISPEL EFFECT:
 
-Special effect displayed on field spell dispel.
-Butcher Quest:
+SPECIAL EFFECT DISPLAYED ON FIELD SPELL DISPEL.
+BUTCHER QUEST:
 
-Butcher quest added.
-Trap Immunity:
+BUTCHER QUEST ADDED.
+TRAP IMMUNITY:
 
-Characters with strength over 120 are immune to traps and destroy them.
-PVP Point Award:
+CHARACTERS WITH STRENGTH OVER 120 ARE IMMUNE TO TRAPS AND DESTROY THEM.
+PVP POINT AWARD:
 
-PVP points given for killing characters with 30 or more armor.
-Butcher Quest Rewards:
+PVP POINTS GIVEN FOR KILLING CHARACTERS WITH 30 OR MORE ARMOR.
+BUTCHER QUEST REWARDS:
 
-Butcher quest reward implemented, including date in item name.
-/questtime command added to show remaining time for quests.
-Account Deletion:
+BUTCHER QUEST REWARD IMPLEMENTED, INCLUDING DATE IN ITEM NAME.
+/QUESTTIME COMMAND ADDED TO SHOW REMAINING TIME FOR QUESTS.
+ACCOUNT DELETION:
 
-Accounts with GT >= 200000 are never deleted by the sphere.
-Zombie Quest:
+ACCOUNTS WITH GT >= 200000 ARE NEVER DELETED BY THE SPHERE.
+ZOMBIE QUEST:
 
-Vampire killing zombie quest added.
-Vampires teleported to spawn item location if outside a 50 tile radius.
-Zombie Quest Fixes:
+VAMPIRE KILLING ZOMBIE QUEST ADDED.
+VAMPIRES TELEPORTED TO SPAWN ITEM LOCATION IF OUTSIDE A 50 TILE RADIUS.
+ZOMBIE QUEST FIXES:
 
-Zombie quest fixes.
-PVM Points:
+ZOMBIE QUEST FIXES.
+PVM POINTS:
 
-PVM points adjusted.
-Bad Message Logging:
+PVM POINTS ADJUSTED.
+BAD MESSAGE LOGGING:
 
-Last packet logged in bad message log.
-Anomaly Fix:
+LAST PACKET LOGGED IN BAD MESSAGE LOG.
+ANOMALY FIX:
 
-Anomaly fix.
-Item Damage:
+ANOMALY FIX.
+ITEM DAMAGE:
 
-Item damage reduced by 1.5x from all characters.
-Alchemist Quest:
+ITEM DAMAGE REDUCED BY 1.5X FROM ALL CHARACTERS.
+ALCHEMIST QUEST:
 
-Alchemist quest added.
-Trap Sound:
+ALCHEMIST QUEST ADDED.
+TRAP SOUND:
 
-Sound added for trap activation.
-Character Creation Debug:
+SOUND ADDED FOR TRAP ACTIVATION.
+CHARACTER CREATION DEBUG:
 
-addchar debug implemented.
-Brain_NEWAI Fire:
+ADDCHAR DEBUG IMPLEMENTED.
+BRAIN_NEWAI FIRE:
 
-brain_newai (15) now throws fire.
-Exception Logging:
+BRAIN_NEWAI (15) NOW THROWS FIRE.
+EXCEPTION LOGGING:
 
-Exception logging implemented for charontick.
-Process New AI Exception:
+EXCEPTION LOGGING IMPLEMENTED FOR CHARONTICK.
+PROCESS NEW AI EXCEPTION:
 
-processnewai exception fix.
-Cauldron Fix:
+PROCESSNEWAI EXCEPTION FIX.
+CAULDRON FIX:
 
-Cauldron fix.
-Quest Bug Fix:
+CAULDRON FIX.
+QUEST BUG FIX:
 
-Quest bug fix.
-Bad Message Fixes:
+QUEST BUG FIX.
+BAD MESSAGE FIXES:
 
-Bad message fixes.
-PVP Points:
+BAD MESSAGE FIXES.
+PVP POINTS:
 
-PVP points adjusted.
-Character Variables:
+PVP POINTS ADJUSTED.
+CHARACTER VARIABLES:
 
-src.xo (now src.ox) variable added for non-NPCs.
-Character Town:
+SRC.XO (NOW SRC.OX) VARIABLE ADDED FOR NON-NPCS.
+CHARACTER TOWN:
 
-src.town variable added.
-Client Version Check:
+SRC.TOWN VARIABLE ADDED.
+CLIENT VERSION CHECK:
 
-Client version check patch removed.
-API Function:
+CLIENT VERSION CHECK PATCH REMOVED.
+API FUNCTION:
 
-lstrlen API function replaced with a faster version.
-Party System:
+LSTRLEN API FUNCTION REPLACED WITH A FASTER VERSION.
+PARTY SYSTEM:
 
-Party system fully implemented.
-No Crypt IP List:
+PARTY SYSTEM FULLY IMPLEMENTED.
+NO CRYPT IP LIST:
 
-TXT\ncip.txt file implemented to list IPs that should not be encrypted.
-Fire Immune Flag:
+TXT\NCIP.TXT FILE IMPLEMENTED TO LIST IPS THAT SHOULD NOT BE ENCRYPTED.
+FIRE IMMUNE FLAG:
 
-Fire Immune flag (char.flags2 && 020) disabled.
-TA 2.0.3 Test:
+FIRE IMMUNE FLAG (CHAR.FLAGS2 && 020) DISABLED.
+TA 2.0.3 TEST:
 
-TA 2.0.3 ready for testing.
-IP list updated without resync.
-GMs cannot be added to parties, and they cannot invite others.
-Encryption disabled.
-Horse Food:
+TA 2.0.3 READY FOR TESTING.
+IP LIST UPDATED WITHOUT RESYNC.
+GMS CANNOT BE ADDED TO PARTIES, AND THEY CANNOT INVITE OTHERS.
+ENCRYPTION DISABLED.
+HORSE FOOD:
 
-Horse food replenished every hour.
-Horse summoning timer fix.
-Character Pet Status:
+HORSE FOOD REPLENISHED EVERY HOUR.
+HORSE SUMMONING TIMER FIX.
+CHARACTER PET STATUS:
 
-Character pets are always blue if the character is online, otherwise their status is default.
-Guard Aggression:
+CHARACTER PETS ARE ALWAYS BLUE IF THE CHARACTER IS ONLINE, OTHERWISE THEIR STATUS IS DEFAULT.
+GUARD AGGRESSION:
 
-Guards no longer attack monsters unless they are pets.
-Yellow Nicknames:
+GUARDS NO LONGER ATTACK MONSTERS UNLESS THEY ARE PETS.
+YELLOW NICKNAMES:
 
-Characters with invulnerability now have yellow nicknames.
-Pet Status:
+CHARACTERS WITH INVULNERABILITY NOW HAVE YELLOW NICKNAMES.
+PET STATUS:
 
-Pets become blue when dismounted and remain blue until the character logs out.
-Guard Behavior:
+PETS BECOME BLUE WHEN DISMOUNTED AND REMAIN BLUE UNTIL THE CHARACTER LOGS OUT.
+GUARD BEHAVIOR:
 
-Guards approach monsters, and monsters enter guarded zones.
-Horse Food Timer:
+GUARDS APPROACH MONSTERS, AND MONSTERS ENTER GUARDED ZONES.
+HORSE FOOD TIMER:
 
-Horse food timer set to one hour.
-NPC Sleep Teleportation:
+HORSE FOOD TIMER SET TO ONE HOUR.
+NPC SLEEP TELEPORTATION:
 
-Sleeping NPCs are teleported to their spawn location if further than 50 tiles away.
-Horse Food Consumption:
+SLEEPING NPCS ARE TELEPORTED TO THEIR SPAWN LOCATION IF FURTHER THAN 50 TILES AWAY.
+HORSE FOOD CONSUMPTION:
 
-Chance to consume horse food on dismount, based on the timer.
-Monster Status:
+CHANCE TO CONSUME HORSE FOOD ON DISMOUNT, BASED ON THE TIMER.
+MONSTER STATUS:
 
-Monster status is set to gray.
-Resync Messages:
+MONSTER STATUS IS SET TO GRAY.
+RESYNC MESSAGES:
 
-Resync messages replaced.
-Guard Aggression:
+RESYNC MESSAGES REPLACED.
+GUARD AGGRESSION:
 
-Guards no longer approach monsters.
-AI Brain Type 15:
+GUARDS NO LONGER APPROACH MONSTERS.
+AI BRAIN TYPE 15:
 
-Brain type 15 NPCs can now enter guarded zones.
-Recollection Sound:
+BRAIN TYPE 15 NPCS CAN NOW ENTER GUARDED ZONES.
+RECOLLECTION SOUND:
 
-Sound added for recollection.
-Kill Check:
+SOUND ADDED FOR RECOLLECTION.
+KILL CHECK:
 
-Kill check added to ensure only criminals receive kills.
-Horse Aggression Criminal Status:
+KILL CHECK ADDED TO ENSURE ONLY CRIMINALS RECEIVE KILLS.
+HORSE AGGRESSION CRIMINAL STATUS:
 
-Criminal status no longer granted when attacking oneself with a horse.
-City Capture Reward:
+CRIMINAL STATUS NO LONGER GRANTED WHEN ATTACKING ONESELF WITH A HORSE.
+CITY CAPTURE REWARD:
 
-City capture reward set to 100k.
-Light Gradient:
+CITY CAPTURE REWARD SET TO 100K.
+LIGHT GRADIENT:
 
-New light gradient implemented.
-City Capture Walls:
+NEW LIGHT GRADIENT IMPLEMENTED.
+CITY CAPTURE WALLS:
 
-Walls near the town stone explode on city capture.
-Farming:
+WALLS NEAR THE TOWN STONE EXPLODE ON CITY CAPTURE.
+FARMING:
 
-Farming system added:
-Universal item type 200, more=3, creates a farm plot.
-Farming skill added to .show skilltotal.
-Snowballs:
+FARMING SYSTEM ADDED:
+UNIVERSAL ITEM TYPE 200, MORE=3, CREATES A FARM PLOT.
+FARMING SKILL ADDED TO .SHOW SKILLTOTAL.
+SNOWBALLS:
 
-Snowballs added with the /snowball command.
-Wall speed increased starting with 30 armor.
-Telnet IP Mask:
+SNOWBALLS ADDED WITH THE /SNOWBALL COMMAND.
+WALL SPEED INCREASED STARTING WITH 30 ARMOR.
+TELNET IP MASK:
 
-Telnet IP list now supports subnets in the form ip.ip.0.0.
-Snowballs Disabled:
+TELNET IP LIST NOW SUPPORTS SUBNETS IN THE FORM IP.IP.0.0.
+SNOWBALLS DISABLED:
 
-Snow
+SNOW
